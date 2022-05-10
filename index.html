@@ -2,10 +2,16 @@
 <html>
   <head>
     <title>HoloCare AR Test</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
   </head>
   <body>
-    <a href="./Scenes/Liver.usdz" rel="ar">
-      <img src="./Scenes/LiverScene.png" width=200>
-    </a>
+    <model-viewer 
+      alt="Heart scene" 
+      src="./Scenes/Liver.glb" ar 
+      ar-modes="webxr scene-viewer quick-look" 
+      environment-image="shared-assets/environments/moon_1k.hdr" 
+      poster="./Scenes/LiverScene.png" seamless-poster shadow-intensity="1" 
+      camera-controls enable-pan>
+    </model-viewer>
   </body>
 </html>
