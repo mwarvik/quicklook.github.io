@@ -3,6 +3,15 @@
   <head>
     <title>HoloCare AR Test</title>
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script>
+      window.addEventListener('load', () => {
+        var isIOS = /iPhone|iPod|iPad/.test(navigator.platform);
+        var arButton = document.getElementById("btn");
+        if (isIOS) {
+          arButton.click();
+        }
+      })
+    </script>
   </head>
   <body>
     <style>
@@ -43,13 +52,16 @@
       </model-viewer>-->
       <model-viewer 
         style="flex: 1; width: 100%"
-        alt="Liver scene" 
+        alt="Liver scene"
         src="./Scenes/LiverScene.glb" ar
         ios-src="./Scenes/LiverScene2.reality"
         ar-modes="webxr scene-viewer quick-look" 
         seamless-poster shadow-intensity="0.5" 
         camera-controls enable-pan>
         <div class="poster" slot="poster"></div>
+        <button id="btn" slot="ar-button" style="background-color: white; border-radius: 4px; border: none; position: absolute; top: 16px; right: 16px; ">
+            👋 Activate AR
+        </button>
       </model-viewer>
     </div>
   </body>
